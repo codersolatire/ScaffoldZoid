@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Oranges List | ScaffoldZoid</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="/static/img/favicon.ico">
+	<!-- <link rel="stylesheet" href="/static/css/ecommerce.css"> -->
+
+	{% include "header.html" %}
+</head>
+
+<body>
+
+<section class="loading-overlay">
+	<div class="Loading-Page">
+		<h1 class="loader">Loading...</h1>
+	</div>
+</section>
+
+<header>
+
+	{% include "header_bar.html" %}
+
+</header>
+
+<main class="main-container">
+
+	<div class="main-block">
+		<div class="container">
+			<div class="ecommerce pt-40">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="shopping-content">
+							<div class="shopping-wishlist">
+								<div class=" table-responsive">
+									<table class="table table-bordered">
+										<thead>
+										<tr>
+											<th>#</th>
+											<th>Image</th>
+											<th>Orange Type</th>
+											<th>Price</th>
+											{% if user_type == "Seller" %} <th>Action</th> {% endif %}
+										</tr>
+										</thead>
+										<tbody>
+										{% for i in orange_data %}
+										<form action="/update_orange/" method="POST">
+											{% csrf_token %}
+											<tr>
+												<td>
+													<input type="text" id="orange_id{{forloop.counter}}" name="orange_id" disabled="true" value="{{i.orange_id}}" />
+												</td>
+												
+												<td>
+													<a href="#">
+														<img width="50%" src="/static/img/orange_one.png" alt="" class="img-responsive"/>
+													</a>
+												</td>
+
+												<td>
+													<input type="text" id="orange_type{{forloop.counter}}" name="orange_type" disabled="true" value="{{i.orange_type}}" />
+												</td>
+
+												<td>
+													<input type="text" id="orange_rate{{forloop.counter}}" name="orange_rate" disabled="true" value="{{i.rate}}" />
+												</td>
+												{% if user_type == "Seller" %}
+													<td>
+														<div class="btn-group btn-group-xs"></div>
+															<input type="button" value="Edit" class="btn btn-success" onclick="editOranges('{{forloop.counter}}')" />
+														</div> <br /> <br />
+														<input type="submit" id="submit{{forloop.counter}}" value="Update" class="btn btn-warning" disabled="true" />
+													</td>
+												{% endif %}
+											</tr>
+										</form>
+										{% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+			</div>
+		</div>
+	</div>
+</main>
+
+{% include "footer.html" %}
+<script type="text/javascript">
+	function editOranges(resp){
+		document.getElementById("orange_type"+resp).disabled=false;
+		document.getElementById("orange_rate"+resp).disabled=false;
+		document.getElementById("orange_id"+resp).disabled=false;
+		document.getElementById("submit"+resp).disabled=false;
+	}
+</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Shopping Cart | LookCare</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="/static/img/favicon.ico">
+
+	{% include "header.html" %}
+</head>
+
+<body>
+
+
+<section class="loading-overlay">
+	<div class="Loading-Page">
+		<h1 class="loader">Loading...</h1>
+	</div>
+</section>
+
+<header>
+
+	{% include "header_bar.html" %}
+
+</header>
+
+<main class="main-container">
+<section class="shopping-cart-area">
+	<div class="ld-subpage-content">
+
+		<div class="ld-cart">
+
+			<section class="ld-cart-section ptb-50">
+
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<table class="table cart-table">
+								<thead>
+								<tr>
+									<th class="table-title">Seller ID</th>
+									<th class="table-title">Seller Image</th>
+									<th class="table-title">Seller Name</th>
+									<th class="table-title">Action</th>
+									<th>
+									<span class="close-button disabled"></span></th>
+								</tr>
+								</thead>
+
+
+								<tbody>
+
+								{% for i in seller_data %}
+									<tr>
+										<td valign="middle">{{ i.user_id }}</td>
+										<td>
+											{% if i.profile_picture %}
+												<img width="40%" class="img-responsive" src="/static/uploads/{{i.user_id}}{{i.profile_picture}}" alt="Seller Image">
+											{% else %}
+												<img width="40%" class="img-responsive" src="/static/img/photos/user5.png" alt="Seller Image">
+											{% endif %}
+										</td>
+										<td valign="middle">{{i.user_first_name}} {{ i.user_last_name }}</td>
+										<td valign="middle">
+											<button type="button" class="btn btn-primary btn-block" value="Details" onclick="getSellerDetails('{{i.user_id}}')">Details</button>
+										</td>
+									</tr>
+								{% endfor %}
+								
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+		</div>
+	</div>
+</section>
+
+</main>
+
+{% include "footer.html" %}
+
+<script type="text/javascript">
+	function getSellerDetails(seller_id){
+		location.href = "/orange_list/?seller_id="+seller_id
+	}
+</script>
+
+</body>
+
+
+</html>

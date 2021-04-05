@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+	<title>404 page | ScaffoldZoid</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,900,700,700italic,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700' rel='stylesheet' type='text/css'>
+
+	{% include "header.html" %}
+</head>
+
+<body>
+
+<section class="loading-overlay">
+	<div class="Loading-Page">
+		<h1 class="loader">Loading...</h1>
+	</div>
+</section>
+
+<header>
+
+	{% include "header_bar.html" %}
+
+</header>
+
+<main class="main-container">
+
+	<section class="ui-not-found">
+	<div class="ui-not-found-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="primary" class="content-area padding-content white-color">
+						<div id="main" class="site-main">
+
+							<section class="error-404 not-found text-center">
+								<h1 class="404">404</h1>
+
+								<p class="lead">Sorry, we could not found the page you are looking for!</p>
+
+								<div class="row">
+									<div class="col-sm-4 col-sm-offset-4">
+										<p class="go-back-home"><a href="/">
+											Back to Home Page</a></p>
+									</div>
+								</div>
+
+							</section>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</main>
+
+{% include "footer.html" %}
+</body>
+
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Profile | ScaffoldZoid</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="/static/img/favicon.ico">
+
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,900,700,700italic,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700' rel='stylesheet' type='text/css'>
+
+	{% include "header.html" %}
+</head>
+
+<body>
+
+<section class="loading-overlay">
+	<div class="Loading-Page">
+		<h1 class="loader">Loading...</h1>
+	</div>
+</section>
+
+
+<header>
+	{% include "header_bar.html" %}
+
+</header>
+
+
+<main class="main-container">
+	<div class="container">
+		<div class="content-md container-sm border-bottom-1">
+			<div class="row">
+				<div class="col-sm-7 sm-margin-b-50">
+					<div class="heading-v1 margin-b-30">
+						<h2 class="heading-v1-title">Hello First Name</h2>
+						<p class="heading-v1-subtitle">Edit your profile here</p>
+					</div>
+
+					<form action="/edit_profile/" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="margin-b-30">
+							<input type="text" id="first_name" name="first_name" class="form-control" value="{{user_data.user_first_name}}"/> <br /> <br />
+
+							<input type="text" id="last_name" name="last_name" class="form-control" value="{{user_data.user_last_name}}"/> <br /> <br />
+
+							<input type="text" id="username" name="username" class="form-control" value="{{user_data.username}}"/> <br /> <br />
+
+							<input type="text" id="user_type" name="user_type" class="form-control" value="{{user_data.user_type}}" disabled="true"/> <br /> <br />
+
+							<input type="text" id="email_id" name="email_id" class="form-control" value="{{user_data.email_id}}"/> <br /> <br />
+
+							<input type="file" id="profile_image" name="profile_image" class="form-control"/> <br /> <br />
+
+							<input type="submit" class="btn btn-block btn-warning" />
+						</div>
+					</form>
+				</div>
+				<div class="col-sm-5">
+					{% if user_data.profile_picture %}
+						<img class="img-responsive" src="/static/uploads/{{user_id}}/{{user_data.profile_picture}}" alt="">
+					{% else %}
+						<img class="img-responsive" src="/static/img/members/06.jpg" alt="">
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+	</div>
+</main>
+
+
+{% include "footer.html" %}
+</body>
+
+</html>

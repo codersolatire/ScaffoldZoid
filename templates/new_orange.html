@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Bags Store</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="/static/img/favicon.ico">
+
+	{% include "header.html" %}
+</head>
+
+<body>
+
+<section class="loading-overlay">
+	<div class="Loading-Page">
+		<h1 class="loader">Loading...</h1>
+	</div>
+</section>
+
+
+<header>	
+	{% include "header_bar.html" %}
+</header>
+
+
+<main class="main-container">
+<section class="checkout-area area-padding ptb-40">
+	<div class="ld-subpage-content">
+
+		<div class="checkout-content">
+			<section class="checkout">
+				<section class="checkout-section">
+					<div class="ld-checkout-inner">
+						<div class="xs-margin"></div>
+						<div class="accordion" id="collapse">
+							<div class="accordion-group panel">
+								<div class="container">
+									<h2 class="accordion-title">
+
+                                            <span>Add New Orange
+                                            </span> <a class="accordion-btn open" data-toggle="collapse" href="#collapse-one"></a>
+									</h2>
+
+									<div class="accordion-body collapse in collapse-one" id="collapse-one">
+
+										<div class="row accordion-body-wrapper">
+
+											<div class="col-sm-6 padding-right-md">
+												<h3 class="subtitle">Orange</h3>
+												<img width="80%" src="/static/img/Orange.png" alt="Oranges">
+											</div>
+
+											<div class="md-margin visible-xs clearfix">
+											</div>
+
+											<div class="col-sm-6 padding-left-md">
+												<h3 class="subtitle">Add New Orange</h3>
+
+												<p>Enter your orange details here</p>
+
+												<div class="xss-margin">
+												</div>
+
+												<form action="/save_orange/" method="POST">
+													{% csrf_token %}
+													<div class="form-group">
+														<label for="orange_type" class="form-label">Orange Type
+															<span class="required">*</span>
+														</label>
+														<input type="text" name="orange_type" id="orange_type" class="form-control input-lg" required>
+													</div>
+
+													<div class="form-group">
+														<label for="orange_rate" class="form-label">Rate in (Rupees/Kg)
+															<span class="required">*</span>
+														</label>
+														<input type="text" name="orange_rate" id="orange_rate" class="form-control input-lg" required>
+													</div>
+
+													<div class="top-5px">
+													</div>
+
+													<div class="xss-margin">
+													</div>
+													<input type="submit" class="btn btn-lg btn-custom min-width-sm" value="Submit">
+												</form>
+											</div>
+										</div>
+
+										<div class="lg-margin2x">
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+
+				</section>
+
+
+			</section>
+
+
+		</div>
+	</div>
+</section>
+
+
+</main>
+
+{% include "footer.html" %}
+</body>
+
+
+</html>

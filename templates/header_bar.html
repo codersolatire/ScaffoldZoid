@@ -1,0 +1,50 @@
+<div class="header-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <!-- Logo section -->
+                <div class="logo">
+                    <h1><a href="index.html"><i class="fa fa-bookmark-o"></i> ScaffoldZoid</a></h1>
+                </div>
+            </div>
+            <!-- <div class="col-md-6 col-md-offset-2 col-sm-5 col-sm-offset-3 hidden-xs">
+                <div class="header-search">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Type Something">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-color" type="button">Search</button>
+                                    </span>
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <div class="navi">
+        <div class="container">
+            <div class="navy">
+                <ul>
+                    <li><a href="/">Home</a></li>
+
+                    <li><a href="/profile/">Profile</a></li>
+
+                    <li>
+                        {% if user_type == "Seller" %}
+                            <a href="/">Add Orange</a>
+                        {% endif %}
+                    </li>
+                    <li><a href="/orange_list/">See Oranges</a></li>
+                    <li>
+                        {% if user_type == "Buyer" %}
+                            <a href="/seller_list/">Sellers List</a>
+                        {% endif %}
+                    </li>
+                    <li><a href="/logout/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

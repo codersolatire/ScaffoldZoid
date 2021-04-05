@@ -1,0 +1,5 @@
+{% if user_type == "Seller" %}
+    {% include "new_orange.html" %}
+{% elif user_type == "Buyer" %}
+    {% include "oranges_list.html" %}
+{% endif %}
